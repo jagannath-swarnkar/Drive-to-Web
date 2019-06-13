@@ -1,0 +1,122 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<h1 class="header">My Drive Gallery</h1>
+<!-- <iframe class="imgsize" src={{folderLink}} frameborder="0" width="100%" height="630px"></iframe> -->
+<!-- div contain image files for slide show -->
+<div class="slideshow-container">
+    <div class="mySlides fade">
+        <img src={{imgLink.0}}  style="width:100%">
+      </div>
+      <div class="mySlides fade">
+        <img src={{imgLink.1}} style="width:100%">
+      </div>
+      <div class="mySlides fade">
+        <img src={{imgLink.2}} style="width:100%">
+      </div>
+      <div class="mySlides fade">
+        <img src={{imgLink.3}} style="width:100%">
+      </div>
+      <div class="mySlides fade">
+        <img src={{imgLink.4}} style="width:100%">
+        </div>
+      <div class="mySlides fade">
+        <img src={{imgLink.5}} style="width:100%">
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+<!-- div for images with magnificPopup -->
+    <div class="gallery">     
+            <ul>
+                <tr><a class="image" href={{imgLink.0}}>
+                    <img class="image" src={{imgLink.0}}>
+                    </a>
+                </tr>
+                <tr><a class="image" href={{imgLink.1}}>
+                    <img class="image" src={{imgLink.1}}>
+                    </a>
+                </tr>
+                <tr><a class="image" href={{imgLink.2}}>
+                        <img class="image" src={{imgLink.2}}>
+                        </a>
+                </tr>
+                <tr><a class="image" href={{imgLink.3}}>
+                        <img class="image" src={{imgLink.3}}>
+                        </a>
+                </tr>
+                <tr><a class="image" href={{imgLink.4}}>
+                        <img class="image" src={{imgLink.4}}>
+                        </a>
+                </tr>
+                <tr><a class="image" href={{imgLink.5}}>
+                        <img class="image" src={{imgLink.5}}>
+                        </a>
+                </tr>
+                <tr><a class="image" href={{imgLink.6}}>
+                        <img class="image" src={{imgLink.6}}>
+                        </a>
+                </tr>
+                <tr><a class="image" href={{imgLink.7}}>
+                        <img class="image" src={{imgLink.7}}>
+                        </a>
+                </tr>
+                <tr><a class="image" href={{imgLink.8}}>
+                        <img class="image" src={{imgLink.8}}>
+                        </a>
+                </tr>
+                <tr><a class="image" href={{imgLink.9}}>
+                        <img class="image" src={{imgLink.9}}>
+                        </a>
+                </tr>
+                <tr><a class="image" href={{imgLink.10}}>
+                        <img class="image" src={{imgLink.10}}>
+                        </a>
+                </tr>
+                <tr><a class="image" href={{imgLink.11}}>
+                        <img class="image" src={{imgLink.11}}>
+                        </a>
+                </tr>
+            </ul>	
+
+    </div>
+<!-- script for magnificPopup -->
+<script>
+    $(".gallery").magnificPopup({
+        delegate:'a',
+        type:'image',
+        gallery:{
+            enabled:true
+        }
+    });
+
+</script>
+<!-- script for slide show -->
+<script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+          }
+</script>
+
+{% endblock %}
